@@ -55,13 +55,13 @@ auto managerTmp = person.manager();
 
 class PersonDelegateOpt {
  public:
-  PersonDelegateOpt(Person&& person) : person_(std::move(person)) {}
+  PersonDelegateOpt(const string& name) : person_(name) {}
 
   string manager() { return person_.department().manager();}
 
  private:
   Person person_;
 };
-PersonDelegateOpt personOpt(Person("sb"));
+PersonDelegateOpt personOpt("sb");
 auto managerOpt = personOpt.manager();
 }
